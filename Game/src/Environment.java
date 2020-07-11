@@ -13,6 +13,7 @@
 //     user types name and programs prints out a sentence with name
 //
 // **********************************************************************************************
+import java.util.*;
 
 public class Environment {
     /* choose house, light hall location map, location knowledge bank
@@ -31,6 +32,94 @@ public class Environment {
     location of munchie marts/taste of nashville (if we wanna do satay)
 
      */
+    public static void main(String[] args) {
 
+    }
+
+    //method that presents you with options when you encounter a zombie
+    public static void zombieEncounter() {
+        Scanner scnr = new Scanner(System.in);
+        //int HP = getHP(); FIXME
+        char choice = getValidChar(scnr);
+        if ((choice == 'R') || (choice == 'r')) {
+            //lose 10 HealthPoints from the energy it takes to run away
+            //setHP(HP - 10); FIXME: need method
+        } else {
+            //chose to fight
+            boolean winOrLose = fightZombie();
+            //FIXME: need to update something so when called to endGame method, the game ends
+        }
+    }
+
+    //determines result of zombie fight
+    public static boolean fightZombie () {
+        Random rand = new Random();
+        //int HP = getHP(); FIXME: need method
+        //bounds for random number generator: can produce the value 1, 2, or 3
+        int max = 3;
+        int min = 1;
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        /*random number generated determines if you survive zombie attack and how much energy it
+        took (HP points) */
+        if (randomNum == 1) {
+            //false means become zombie
+            return false;
+        } else if (randomNum == 2) {
+            //fight takes a lot of energy and you lose 40 HealthPower points
+            //setHP(HP - 40); FIXME
+            return true;
+        } else {
+            //fight doesn't take as much energy and you only lose 10 HealthPower points
+            //setHP(HP - 10); FIXME
+            return true;
+        }
+    }
+
+    /**
+     getValidChar -
+     * This method checks if the user entered one of the valid characters to respond to prompt
+     * (R or F)
+     *
+     * @param scnr -- scanner that allows user input to be read
+     * @return -- char of the validated letter
+     */
+    public static char getValidChar (Scanner scnr) {
+        //prompt user for initial letter input
+        System.out.println("Enter R if you choose to run or F if you choose to fight the zombie:");
+        String charStr = scnr.nextLine();
+
+        //create string scanner
+        Scanner charStrScanner = new Scanner(charStr);
+
+        //set initial letter variable to an invalid value
+        char letter = 'Z';
+
+        //check if the user entered something
+        if (charStr.length() != 0) {
+            //check if the string has a next value and if it does, get it
+            if (charStrScanner.hasNext()) {
+                String str = charStrScanner.next();
+                //get the character entered
+                letter = str.charAt(0);
+            }
+        }
+        /*if character entered is not one of the valid options, continue prompting user for valid
+        character (insensitive case so lowercase letters entered are valid) */
+        while (!(charStr.equalsIgnoreCase("R")) && !(charStr.equalsIgnoreCase("F"))) {
+            //re-prompt user for a valid letter
+            System.out.println("Letter entered must be either R or F. Enter your choice: ");
+            charStr = scnr.nextLine();
+            charStrScanner = new Scanner(charStr);
+
+            if (charStr.length() != 0) {
+                //check if the string has a next value, if it does get it
+                if (charStrScanner.hasNext()) {
+                    String str = charStrScanner.next();
+                    letter = str.charAt(0);
+                }
+            }
+        }
+        return letter;
+    }
 
 }
