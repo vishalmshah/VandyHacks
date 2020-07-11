@@ -30,6 +30,7 @@ public class Player {
 
     set up like memory of location coordinates, (if they've been to light hall before, they have
     coordinates saved)
+    when you go to location for a first time you store that location
 
     health warning
 
