@@ -20,11 +20,20 @@ public class Player {
     setHP;
     getSI;
     setSI;
+    if HP/SI get below a point, game is ended (changeHP() etc , dead == ?)
+    2D player simple methods
+
+    later: setX();
+           setY();
+           print out coordinates after each move (+5 to the right) set X (+5);
 
 
+    keep count of munchie mart food, inventory of food
 
-    2D player
+    set up like memory of location coordinates, (if they've been to light hall before, they have
+    coordinates saved)
 
+    health warning
 
      */
 
