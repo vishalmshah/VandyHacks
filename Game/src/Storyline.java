@@ -11,9 +11,18 @@ public class Storyline {
 
         int house = randy.nextInt();
         String houseName;
+        //method to call houseName from @Environment
+        System.out.println("Your assigned residential house is " + houseName);
 
-        /* Narrator*/
+        choicePrompt();
+        System.out.println("Do you talk to your roommate/ignore your roommate?");
+        int choice = reader.nextInt();
 
 
+    }
+
+    public static void choicePrompt() {
+        System.out.println("CHOICE: ");
+        System.out.println("Press 1/2 to make your decision");
     }
 }

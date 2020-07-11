@@ -25,7 +25,6 @@ public class Player {
 
     set location (input string)
 
-
     keep count of munchie mart food, inventory of food
 
     set up like memory of location coordinates, (if they've been to light hall before, they have
