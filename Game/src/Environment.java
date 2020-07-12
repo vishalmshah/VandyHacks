@@ -230,4 +230,9 @@ public class Environment {
             character.setLocation("Featheringill");
         }
     }
+
+    public static String [] getArray (String[] memoryMap) {
+        return memoryMap;
+    }
+
 }
