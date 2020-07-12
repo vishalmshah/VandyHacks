@@ -20,7 +20,7 @@ public class Storyline {
         System.out.println("Do you wake your roommate up to go explore/go explore by yourself?");
         choice = getValidChoice(reader);
         if(choice == 2) {
-            //FIXME -10 SI @Player
+            //FIXME -10 SI @Player BLAHGNOSGNGA
         }
 
         System.out.println("\n");
