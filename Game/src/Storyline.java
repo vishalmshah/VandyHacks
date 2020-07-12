@@ -1,39 +1,46 @@
 
 import java.util.*;
 
+
 public class Storyline {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-
-        dayOne(reader);
+        int choice;
+        dayOne(reader, choice);
 
 
     }
 
     //static methods
-    public static void dayTwo(Scanner reader) {
+    public static void dayTwo(Scanner reader, int choice) {
         //Day 2
         System.out.println("Friday: Noon \033[3m5% " +
                 "infected\033[0m \n*****************************\n");
         choicePrompt();
         System.out.println("Do you wake your roommate up to go explore/go explore by yourself?");
-        int choice = getValidChoice(reader);
+        choice = getValidChoice(reader);
+        if(choice == 2) {
+            //FIXME -10 SI @Player
+        }
+
+        System.out.println("\n");
+        choicePrompt();
+        System.out.println("");
     }
 
-    public static void dayOne(Scanner reader) {
+    public static void dayOne(Scanner reader, int choice) {
         //Day 1
         System.out.println("Thursday: 6:00pm Move-In Day\n*****************************\n");
         System.out.println("Welcome to Vanderbelt University! We're thrilled to welcome you to " +
                 "our community. Go ahead and get settled in your freshmen residential college.");
 
-        String houseName;
-        //FIXME method to call houseName from @Environment
+        String houseName = Environment.freshmanHouse();
         System.out.println("\nYour assigned residential house is " + houseName + "\nYou walk to " +
                 "your dorm room. Your roommate is already there.");
 
         choicePrompt();
         System.out.println("Do you talk to your roommate/ignore your roommate?");
-        int choice = getValidChoice(reader);
+        /*choice = getValidChoice(reader);
 
         if(choice == 1) {
             //FIXME commons location is found, memory map accessed @Environment
@@ -43,7 +50,7 @@ public class Storyline {
             // memory map accessed @Environment
         }
 
-        //FIXME Narrator sout statement explaining how to access memory map and what it is?
+        //FIXME Narrator sout statement explaining how to access memory map and what it is?*/
 
         System.out.println("\nYou've arrived at Commons Dining Hall. You see groups of people " +
                 "milling about.");
