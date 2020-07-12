@@ -60,10 +60,12 @@ public class Player {
 
     public int changeHP(int lossOfHP) {
         HP = HP - lossOfHP;
+        return HP;
     }
 
     public int changeSI(int lossOfSI) {
         SI = SI - lossOfSI;
+        return HP;
     }
 
 
