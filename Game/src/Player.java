@@ -3,12 +3,14 @@ import java.util.*;
 public class Player {
     private int HP;
     private int SI;
+    private int foodCount;
     private string location;
 
     //default constructor
     public Player () {
         HP = 100;
         SI = 100;
+        foodCount = 0;
         location = "Dorm Room";
     }
 
@@ -20,12 +22,16 @@ public class Player {
         SI = userSI;
     }
 
+    public void setFoodCount(int userFoodCount) {
+        foodCount = userFoodCount;
+    }
+
     public void setLocation(string userLocation) {
         location = userLocation;
     }
 
     //If HP reaches 0, the game is over
-    public static int getHP() {
+    public int getHP() {
         if (this.HP == 0) {
             System.out.println("You have died.  Better luck next time.");
         } else if (this.HP <= 30) {
@@ -35,7 +41,7 @@ public class Player {
     }
 
     //If SI reaches 0, the game is over
-    public static int getSI() {
+    public int getSI() {
         if (this.SI == 0) {
             System.out.println("You have died.  Better luck next time.");
         } else if (this.SI <= 30){
@@ -44,17 +50,17 @@ public class Player {
         return this.SI;
     }
 
-    public static string getLocation() {
+    public int getFoodCount() {
+        return this.foodCount;
+    }
+
+    public string getLocation() {
         return this.location;
     }
 
 
     /*
     2D player simple methods
-
-    set location (input string)
-
-    keep count of munchie mart food, inventory of food
 
     set up like memory of location coordinates, (if they've been to light hall before, they have
     coordinates saved)
