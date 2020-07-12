@@ -122,4 +122,35 @@ public class Environment {
         return letter;
     }
 
+    public static String freshmanHouse () {
+        Random rand = new Random();
+        //bounds for random number generator: can produce any integer from 1-10
+        int max = 10;
+        int min = 1;
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        switch (randomNum) {
+            case 1:
+                return "North";
+            case 2:
+                return "West";
+            case 3:
+                return "East";
+            case 4:
+                return "Gillette";
+            case 5:
+                return "Hank Ingram";
+            case 6:
+                return "Memorial";
+            case 7:
+                return "Murray";
+            case 8:
+                return "Stambaugh";
+            case 9:
+                return "Sutherland";
+            case 10:
+                return "Crawford";
+            default:
+                return "Try Again";
+        }
+    }
 }
