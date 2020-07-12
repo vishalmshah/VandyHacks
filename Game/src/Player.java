@@ -27,7 +27,7 @@ public class Player {
     //If HP reaches 0, the game is over
     public int getHP() {
         if (this.HP == 0) {
-            System.out.println("You have died.  Better luck next time.");
+            System.out.println("You have died. Better luck next time.");
         } else if (this.HP <= 30) {
             System.out.println("Be careful, your HP has dropped dangerously low");
         }

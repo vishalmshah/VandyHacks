@@ -63,7 +63,22 @@ public class Storyline {
             //FIXME +10HP @Player
         }
 
-
+        System.out.println("After V-squared Mentor meeting, you are tired. You want to lie on the" +
+                " Magnolia lawn outside Commons.");
+        choicePrompt();
+        System.out.println("Do you choose to lie on Magnolia lawn even if you feel " +
+                "self-conscious/sit quietly on a bench like a normal person?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You are BOLD so you decide to lie on Magnolia Lawn alone. You " +
+                    "feel eyes watching you but you don't care. This is part of your VU " +
+                    "Experience. Suddenly you hear a loud scream nearby.");
+            System.out.println("\n THERE IS A ZOMBIE NEARBY!");
+            //FIXME add zombie attack here
+        }
+        else {
+            System.out.println("You enjoy a peaceful afternoon until");
+        }
 
     }
     public static void dayTwo(Scanner reader, int choice, Player player) {
