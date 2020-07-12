@@ -87,7 +87,27 @@ public class Storyline {
                 "soaked in sweat in this 90 degree weather by the time you get there.");
         //FIXME add Langford Auditorium to memory map @Environment
 
+        choicePrompt();
+        System.out.println("Do you remain in your soaked clothes/quickly run back to your dorm to" +
+                " apply deodorant?");
+        choice = getValidChoice(reader);
 
+        if(choice == 1) {
+            System.out.println("You decide to stick with your group. However, with your soaked " +
+                    "clothes and a slight smell coming from you, no one sits besides you. It's " +
+                    "okay though because you estimate that by the time the skit is over, your " +
+                    "sweat will have dried and no longer have sweat stains. You missed the entire" +
+                    " skit thinking about sweating.");
+            //FIXME -10 SI @Player for sweating
+        }
+        else {
+            System.out.println("You decide to run back to your dorm causing you to sweat even " +
+                    "more. You apply your deodorant and change shirts. You meet your Head of " +
+                    "House professor on the way out.");
+            choicePrompt();
+            System.out.println("Do you give your Head of House professor time of day/run away and" +
+                    " rejoin your group?);
+        }
 
 
     }
