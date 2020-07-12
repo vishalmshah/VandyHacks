@@ -18,6 +18,10 @@ public class Environment {
         } else {
             //chose to fight
             boolean winOrLose = fightZombie(character);
+            if (winOrLose == false) {
+                //since you died while fighting the zombie, you lose all of your potential HP
+                character.changeHP(100);
+            }
         }
     }
 
