@@ -16,6 +16,8 @@ public class Storyline {
         dayThree(reader, choice, mainguy);
         dayFour(reader, choice, mainguy);
 
+        dayEnd(reader);
+
         /*Format for days
         make separate method dayFive, daySix, etc. should have the same parameters.
         System.out.println("Saturday: 9:00am \033[3m10% " +
@@ -50,6 +52,14 @@ public class Storyline {
     }
 
     //static methods
+    public static void dayEnd(Scanner reader) {
+        System.out.println("You wake up in your bed at home. You breathe a sigh of relief.");
+        System.out.println("Your phone dings. You got an email from Vanderbelt University. What " +
+                "does it say?");
+        System.out.println("\"Please return to campus to retrieve your belongings.\"");
+        System.out.println("\n\t\t\t\tEND");
+    }
+
     public static void dayFour(Scanner reader, int choice, Player player) {
         System.out.println("Sunday: 10:00am \033[3m25% " +
                 "infected\033[0m \n*****************************\n");
