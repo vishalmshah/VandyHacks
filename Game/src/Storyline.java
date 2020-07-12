@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 
@@ -9,7 +8,6 @@ public class Storyline {
         Player mainguy = new Player();
         String memoryMap[] = new String[10];
 
-        //FIXME while HP is above certain level if not then end game??
         dayOne(reader, choice, mainguy, memoryMap);
         dayTwo(reader, choice, mainguy, memoryMap);
         dayThree(reader, choice, mainguy, memoryMap);
@@ -72,7 +70,7 @@ public class Storyline {
                 " staring at you");
         System.out.println("You ask: Hey, how are you getting home?");
         System.out.println("Your roommate jumps at you and starts to attack");
-        // FIXME: Zombie fight sequence
+        Environment.zombieEncounter(player);
 
         System.out.println("You need to get out. You anxiously stuff whatever you" +
                 " can into a backpack");
@@ -94,7 +92,7 @@ public class Storyline {
         choicePrompt();
         System.out.println("Do you find other survivors and go in a group/head straight to Light Hall");
         choice = getValidChoice(reader);
-        if(choice == 1) { // TODO: A short version of what is actually supposed to happen
+        if(choice == 1) {
             System.out.println("You find other survivors and start moving");
         } else {
             System.out.println("You start walking and meet a small group on the way." +
@@ -103,12 +101,12 @@ public class Storyline {
 
         for(int i = 0; i < 3; ++i) {
             System.out.println("You and your group search intently");
-            // FIXME: A couple zombie attacks here
+            Environment.zombieEncounter(player);
         }
 
         System.out.println("You find Light Hall! You climb the stairs to the roof");
         System.out.println("A helicopter waits. A lone zombie stands in your way");
-        // FIXME: ZOmbie fight
+        Environment.zombieEncounter(player);
         System.out.println("You let out a sigh of relief as you board the helicopter," +
                 " escaping the zombies' grasp");
 
@@ -126,12 +124,12 @@ public class Storyline {
         choice = getValidChoice(reader);
         if(choice == 1) {
             System.out.println("You pick up some frozen food at Munchie");
-            // FIXME: Health +10HP
+            player.changeHP(-10);
         }
         else {
             System.out.println("Your Commons food is a little strange tasting. You" +
                     " get a stomachache");
-            // FIXME: Health -5HP
+            player.changeHP(5);
         }
 
         System.out.println("You see a group of people outside of commons as you exit." +
@@ -150,7 +148,7 @@ public class Storyline {
                     " You start to second guess yourself, but commit to the interaction." +
                     " As you're about to introduce yourself, you notice their tattered" +
                     " and blood-stained clothing. They're ZOMBIES!");
-            // FIXME: Zombie attack
+            Environment.zombieEncounter(player);
         }
 
         System.out.println("You return to your dorm. After that encounter, you need to de-stress");
@@ -159,19 +157,16 @@ public class Storyline {
         System.out.println("Do you find people to hang out with/Play video games in your dorm");
         choice = getValidChoice(reader);
         if(choice == 1) {
-            if(51 >= 50) {//FIXME
-                System.out.println("As you walk back to your dorm late at night, you hear voices talking.");
-                System.out.println("\"Bro! Tonight was so fun\"");
-                System.out.println("\"Yeah bro we went wild!\"");
-                System.out.println("\"Sig Chi brothers for lyfe!\"");
-                System.out.println("You turn your head to see zombies wearing tattered pink polos and" +
-                        " khaki shorts walking in your direction. They look at you");
-                System.out.println("\"What did you think bro?\"");
-                System.out.println("It's the frats. The had a party. \033[3mOh no\033[0m");
-                // FIXME: Zombie fight
-            } else {
-                System.out.println("You try to make friend, but you fail"); // FIXME: This whole frat boi thing
-            }
+            System.out.println("You have fun");
+            System.out.println("As you walk back to your dorm late at night, you hear voices talking.");
+            System.out.println("\"Bro! Tonight was so fun\"");
+            System.out.println("\"Yeah bro we went wild!\"");
+            System.out.println("\"Sig Chi brothers for lyfe!\"");
+            System.out.println("You turn your head to see zombies wearing tattered pink polos and" +
+                    " khaki shorts walking in your direction. They look at you");
+            System.out.println("\"What did you think bro?\"");
+            System.out.println("It's the frats. The had a party. \033[3mOh no\033[0m");
+            Environment.zombieEncounter(player);
         }
         else {
             System.out.println("You play games and talk to your roommate");
@@ -194,7 +189,7 @@ public class Storyline {
         choice = getValidChoice(reader);
         if(choice == 1) {
             System.out.println("You crawl back into the glorious slumber you were previously in.");
-            // FIXME: Health +5HP
+            player.changeHP(-5);
         }
         else {
             System.out.println("George, the guy sitting next you you starts a conversation with you");
@@ -213,11 +208,11 @@ public class Storyline {
             System.out.println("You stand in line for an hour waiting for a Rand Bowl, but" +
                     " now it's time for class");
             System.out.println("You skip lunch");
-            // FIXME: Health -5HP
+            player.changeHP(5);
         }
         else {
             System.out.println("You eat a wonderful meal");
-            // FIXME: Health +5HP
+            player.changeHP(-5);
         }
 
         System.out.println("As you leave your last class, you overhear people talking about"+
@@ -247,11 +242,11 @@ public class Storyline {
         if(choice == 1) {
             System.out.println("You become closer with this group and they help you feel" +
                     " less nervous about the zombies");
-            // FIXME +10SI
+            player.changeSI(-10);
         }
         else {
             System.out.println("You go to bed stressed and don't get any sleep");
-            // FIXME: -5HP
+            player.changeHP(5);
         }
 
         System.out.println("*******End Day Five*******");
@@ -567,8 +562,6 @@ public class Storyline {
             player.changeHP(10);
             Environment.addLocation("Commons Dining Hall", memoryMap);
         }
-
-        //FIXME Narrator sout statement explaining how to access memory map and what it is?
 
         System.out.println("\nYou've arrived at Commons Dining Hall. You see groups of people " +
                 "milling about.");
