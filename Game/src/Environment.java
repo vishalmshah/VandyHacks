@@ -185,4 +185,61 @@ public class Environment {
             }
         }
     }
+
+    public static char getValidLocation (Scanner scnr, String[] memoryMap) {
+        //prompt user for letter corresponding to location input
+        displayMemoryMap(memoryMap);
+        String charStr = scnr.nextLine();
+
+        //create string scanner
+        Scanner charStrScanner = new Scanner(charStr);
+
+        //set initial letter grade variable to an invalid value
+        char letter = 'Z';
+
+        //check if the user entered something
+        if (charStr.length() != 0) {
+            //check if the string has a next value and if it does, get it
+            if (charStrScanner.hasNext()) {
+                String gradeStr = charStrScanner.next();
+                //get the character entered
+                letter = gradeStr.charAt(0);
+            }
+        }
+        /*if character entered is not one of the valid options, continue prompting user for valid
+        character (insensitive case so lowercase letters entered are valid) */
+        while (!(charStr.equalsIgnoreCase("R")) && !(charStr.equalsIgnoreCase("C"))
+                && !(charStr.equalsIgnoreCase("S")) && !(charStr.equalsIgnoreCase("L"))
+                && !(charStr.equalsIgnoreCase("F"))) {
+            //re-prompt user for a valid grade
+            System.out.println("Letter entered must be one of: R, C, S, L, F. Enter the letter");
+            charStr = scnr.nextLine();
+            charStrScanner = new Scanner(charStr);
+
+            if (charStr.length() != 0) {
+                //check if the string has a next value, if it does get it
+                if (charStrScanner.hasNext()) {
+                    String gradeStr = charStrScanner.next();
+                    letter = gradeStr.charAt(0);
+                }
+            }
+        }
+        return letter;
+    }
+
+    public static void changeLocation (String[] memoryMap, Player character) {
+        Scanner scnr = new Scanner(System.in);
+        char locationLetter = getValidLocation(scnr, memoryMap);
+        if (locationLetter == 'R' || locationLetter == 'r') {
+            character.setLocation("Rand");
+        } else if (locationLetter == 'C' || locationLetter == 'c') {
+            character.setLocation("Commons");
+        } else if (locationLetter == 'S' || locationLetter == 's') {
+            character.setLocation("Satay");
+        } else if (locationLetter == 'L' || locationLetter == 'l') {
+            character.setLocation("Langford Auditorium");
+        } else if (locationLetter == 'F' || locationLetter == 'f') {
+            character.setLocation("Featheringill");
+        }
+    }
 }
