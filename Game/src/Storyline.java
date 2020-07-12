@@ -23,12 +23,42 @@ public class Storyline {
         choice = getValidChoice(reader);
         if(choice == 2) {
             player.changeSI(-10);
-
         }
 
         System.out.println("\n");
         choicePrompt();
-        System.out.println("");
+        System.out.println("Do you wander around campus/wander around the Hillsboro area?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            //FIXME add campus locations
+            System.out.println("You discover these secret tunnels underneath the building of " +
+                    "Stevenson. As you wander, you hear a moan behind and you hide. In the " +
+                    "tunnels is a person strapped to a hospital bed!! Their skin is turning " +
+                    "greenish and peeling off. Their eyes are pure white. Scared, you flee. What " +
+                    "a scary experience!");
+        }
+        else {
+            //FIXME add hillsboro taste of nashville locations?/commons locations of each house??
+            System.out.println("As you are crossing the busy street to get to the burger place " +
+                    "known as Hopdoddy, a car is coming at you full speed. You're in the middle " +
+                    "of the road! You run towards the other side but the car slams into your foot" +
+                    " and sends you flying. Wow, that's gotta hurt. :( \n In your haze of pain, " +
+                    "you notice something off about the driver. His car has stopped but he has " +
+                    "not gotten out. Instead he stares blankly past you with clouded over eyes. " +
+                    "He smiles revealing rotten teeth. One falls off! Grossed out, you limp away " +
+                    "to Jeni's for ice cream to heal your tramautized soul.");
+        }
+
+        System.out.println("After resting for a while, you check your watch. You are now late to " +
+                "your first Vanderbelt Visions meeting!");
+
+        choicePrompt();
+        System.out.println("Do you ask stranger for help finding your group/wander around and " +
+                "find them on your own?");
+        choice = getValidChoice(reader);
+
+
+
     }
 
     public static void dayOne(Scanner reader, int choice) {
