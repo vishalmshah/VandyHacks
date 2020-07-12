@@ -26,7 +26,7 @@ public class Player {
         foodCount = userFoodCount;
     }
 
-    public void setLocation(string userLocation) {
+    public void setLocation(String userLocation) {
         location = userLocation;
     }
 
@@ -54,7 +54,7 @@ public class Player {
         return this.foodCount;
     }
 
-    public string getLocation() {
+    public String getLocation() {
         return this.location;
     }
 
