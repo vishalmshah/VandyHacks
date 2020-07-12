@@ -19,7 +19,7 @@ public class Storyline {
 
         choicePrompt();
         System.out.println("Do you talk to your roommate/ignore your roommate?");
-        int choice = reader.nextInt();
+        int choice = getValidChoice(reader);
 
         if(choice == 1) {
             //FIXME commons location is found, memory map accessed @Environment
@@ -35,40 +35,68 @@ public class Storyline {
                 "milling about.");
         choicePrompt();
         System.out.println("Do you talk/ignore?" );
-        choice = reader.nextInt();
+        choice = getValidChoice(reader);
 
         if(choice == 1) {
-            System.out.println("You introduce yourself");
-            System.out.println("\n \" Hello my name is Brett! I'm so excited to be here at " +
-                    "Vandy!!\" ");
-            System.out.println("I'm an econ major with a minor in HOD and can't wait to rush " +
+            System.out.println("You introduce yourself. They launch into their introduction.");
+            System.out.println("\n\"Hello my name is Brett! I'm so excited to be here at " +
+                    "Vandy!! ");
+            System.out.print("\nI'm an econ major with a minor in HOD and can't wait to rush " +
                     "KA!!\nI'm from Alabama by the way. Can't wait for the football games and " +
-                    "tailgates!");
-            System.out.println("\n You wonder to yourself what is HOD...");
+                    "tailgates!\"\n");
+            System.out.print("\n You wonder to yourself what is HOD...?");
         }
 
+        System.out.println("A stranger approaches you.");
+        choicePrompt();
+        System.out.println("Do you talk/ignore?");
+        choice = getValidChoice(reader);
 
+        if(choice == 1) {
+            System.out.println("They look a little confused.");
+            System.out.println("\n\"Hey I'm Kayleigh, I think I might be pre-med and currently " +
+                    "double majoring in Biology and Neuroscience, but that might change! \nDid " +
+                    "you " +
+                    "hear about Chet last night?? Big yikes!\"\n");
+            System.out.println("You want to ask her more about Chet but she has walked away " +
+                    "around. Rude.");
+        }
 
+        System.out.println("Another stranger walks towards you.");
+        choicePrompt();
+        System.out.println("Do you talk/ignore?");
+        choice = getValidChoice(reader);
 
-
-
-
+        if(choice == 1) {
+            System.out.println("It's a guy you recognize from earlier.");
+            System.out.println("\n\" Hey dude! I'm Caleb from San Fran. Heard the food at Commons" +
+                    " was gnarly. Boutta head over to Rand with a few of the dudes. Wanna " +
+                    "come?\"\n");
+            //FIXME rand location is found, memory map accessed @Environment
+            System.out.println("You've arrived at Rand Dining Hall with your new friends.");
+        }
 
     }
 
+    //static methods
+
+    /**
+     * encode-
+     * repeats same output before each choice aspect
+     */
     public static void choicePrompt() {
-        System.out.println("\nCHOICE: ");
+        System.out.println("\n\nCHOICE: ");
         System.out.println("Press 1/2 to make your decision");
     }
 
     /**
      * encode-
-     * this method prompts the user for a valid int input (incorporates hasNext() methods)
+     * prompts the user for a valid int input (incorporates hasNext() methods)
      * Precondition: none
      * @param reader -- used to read in the user's input test score
      * @return -- the int that the user entered
      */
-    public static int getValidIntScore(Scanner reader) {
+    public static int getValidChoice(Scanner reader) {
         int choice = 0;
 
         //the next line is a code tidbit provided by Prof. Dan Arena
