@@ -52,7 +52,7 @@ public class Environment {
     }
 
     //determines result of zombie fight
-    public static boolean fightZombie () {
+    public static boolean fightZombie (Player character) {
         Random rand = new Random();
         //int HP = getHP(); FIXME: need method
         //bounds for random number generator: can produce the value 1, 2, or 3
@@ -66,7 +66,7 @@ public class Environment {
             return false;
         } else if (randomNum == 2) {
             //fight takes a lot of energy and you lose 40 HealthPower points
-            //setHP(HP - 40); FIXME
+            //character.setHP(HP - 40); FIXME
             return true;
         } else {
             //fight doesn't take as much energy and you only lose 10 HealthPower points
