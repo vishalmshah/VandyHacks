@@ -10,13 +10,13 @@ public class Storyline {
         String memoryMap[] = new String[10];
 
         //FIXME while HP is above certain level if not then end game??
-        dayOne(reader, choice, mainguy);
-        dayTwo(reader, choice, mainguy);
-        dayThree(reader, choice, mainguy);
-        dayFour(reader, choice, mainguy);
-        dayFive(reader, choice, mainguy);
-        daySix(reader, choice, mainguy);
-        daySeven(reader, choice, mainguy);
+        dayOne(reader, choice, mainguy, memoryMap);
+        dayTwo(reader, choice, mainguy, memoryMap);
+        dayThree(reader, choice, mainguy, memoryMap);
+        dayFour(reader, choice, mainguy, memoryMap);
+        dayFive(reader, choice, mainguy, memoryMap);
+        daySix(reader, choice, mainguy, memoryMap);
+        daySeven(reader, choice, mainguy, memoryMap);
         dayEnd(reader);
 
         /*Format for days
@@ -61,7 +61,7 @@ public class Storyline {
         System.out.println("\n\t\t\t\tEND");
     }
 
-    public static void daySeven(Scanner reader, int choice, Player player) {
+    public static void daySeven(Scanner reader, int choice, Player player, String[] memoryMap) {
         System.out.println("Wednesday: 9:00am \033[3m100% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("You wake up to an email and 15 missed calls from your parents"+
@@ -112,10 +112,10 @@ public class Storyline {
         System.out.println("You let out a sigh of relief as you board the helicopter," +
                 " escaping the zombies' grasp");
 
-        System.out.println("*******End Day Seven*******")
+        System.out.println("*******End Day Seven*******");
     }
 
-    public static void daySix(Scanner reader, int choice, Player player) {
+    public static void daySix(Scanner reader, int choice, Player player, String[] memoryMap) {
         System.out.println("Tuesday: 9:00am \033[3m50% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("You wake up a little stressed. Or maybe you're just hungry. " +
@@ -182,7 +182,7 @@ public class Storyline {
         System.out.println("*******End Day Six*******");
     }
 
-    public static void dayFive(Scanner reader, int choice, Player player) {
+    public static void dayFive(Scanner reader, int choice, Player player, String[] memoryMap) {
         System.out.println("Monday: 8:00am Classes Start \033[3m35% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("You wake up on your floor clutching one of your roommate's pillows." +
@@ -257,7 +257,7 @@ public class Storyline {
         System.out.println("*******End Day Five*******");
     }
 
-    public static void dayFour(Scanner reader, int choice, Player player) {
+    public static void dayFour(Scanner reader, int choice, Player player, String[] memoryMap) {
         System.out.println("Sunday: 10:00am \033[3m25% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("Today you have your advisor meeting. You get ready and head over to " +
