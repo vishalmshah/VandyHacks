@@ -3,15 +3,24 @@ import java.util.*;
 
 public class Storyline {
     public static void main(String[] args) {
-        Random randy = new Random(11);
         Scanner reader = new Scanner(System.in);
 
+        dayOne(reader);
+
+
+    }
+
+    //static methods
+    public static void dayTwo(Scanner reader) {
+
+    }
+
+    public static void dayOne(Scanner reader) {
         //Day 1
         System.out.println("Thursday: 6:00pm Move-In Day\n*****************************\n");
         System.out.println("Welcome to Vanderbelt University! We're thrilled to welcome you to " +
                 "our community. Go ahead and get settled in your freshmen residential college.");
 
-        int house = randy.nextInt();
         String houseName;
         //FIXME method to call houseName from @Environment
         System.out.println("\nYour assigned residential house is " + houseName + "\nYou walk to " +
@@ -84,13 +93,16 @@ public class Storyline {
             System.out.println("Do you investigate/do not investigate?");
             int choice2 = getValidChoice(reader);
 
+            if(choice2 == 1) {
+                System.out.println("You notice two dining hall workers leaving. They look unwell," +
+                        " with swollen bruising faces. They groan terribly. You think they " +
+                        "must've ate something bad. Hope they're okay.");
+            }
+
         }
-
-    }
-
-    //static methods
-
-    public static void dayOne(Scanner reader) {
+        System.out.println("You return to your dorm. You spend the night talking your roommate. " +
+                "You are both excited for the next day. You sleep late. ");
+        System.out.println("*******End Day One*******");
 
     }
 
