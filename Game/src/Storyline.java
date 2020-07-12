@@ -35,8 +35,12 @@ public class Storyline {
         else {
             System.out.println("You wake up and fumble around their alarm clock. It's confusing " +
                     "but you figure it out. Your roommate awakes now and you exchange polite " +
-                    "\"mornings\"");
+                    "\"mornings\". All is well.");
+            //FIXME +10SI @Player
         }
+
+        System.out.println("You walk to Rand for breakfast. But it hasn't opened yet so you grab " +
+                "food at Food For A Thought cafe at Central Library. ");
 
     }
     public static void dayTwo(Scanner reader, int choice, Player player) {
