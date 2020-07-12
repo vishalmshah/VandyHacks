@@ -7,8 +7,7 @@ public class Storyline {
         Scanner reader = new Scanner(System.in);
         int choice = 0;
         Player mainguy = new Player();
-
-        int hp = mainguy.getHP();
+        String memoryMap[] = new String[10];
 
         //FIXME while HP is above certain level if not then end game??
         dayOne(reader, choice, mainguy);
@@ -273,13 +272,15 @@ public class Storyline {
             System.out.println("Turns out you had wrongly estimated the time. But thankfully " +
                     "leaving early means you arrived on time. But you are hungry and your stomach" +
                     " grumbles loudly. You know everyone can hear it.");
-            //FIXME -10 HP @Player, +10 SI @Player
+            player.changeSI(-10);
+            player.changeHP(10);
         }
         else {
             System.out.println("Turns out you had wrongly estimated the time. And so leaving on " +
                     "time means you're late to the meeting. Not a great first impression. But at " +
                     "least you're not hungry!");
-            //FIXME +10HP @Player, -10 SI @Player
+            player.changeSI(10);
+            player.changeHP(-10);
         }
 
         System.out.println("As you head back to Commons, you notice a man trailing you in the " +
@@ -292,7 +293,7 @@ public class Storyline {
         choice = getValidChoice(reader);
         if(choice == 1) {
             System.out.println("He's a ZOMBIE!!");
-            //FIXME insert zombie attack here
+            Environment.zombieEncounter(player);
         }
         else {
             System.out.println("As you walk away, you notice that he's wearing your friend's " +
@@ -322,7 +323,7 @@ public class Storyline {
                 System.out.println("They sounded super scared. You're worried so you ditch the " +
                         "floor meeting. Outside Peabody, there is nothing but darkness...");
                 System.out.println("\nSuddenly something grabs you!! A ZOMBIE!!!");
-                //FIXME insert zombie attack
+                Environment.zombieEncounter(player);
             }
             else {
                 System.out.println("You return to meeting.");
@@ -336,7 +337,7 @@ public class Storyline {
         System.out.println("*******End Day Four*******");
 
     }
-    public static void dayThree(Scanner reader, int choice, Player player) {
+    public static void dayThree(Scanner reader, int choice, Player player, String[] memoryMap) {
         System.out.println("Saturday: 9:00am \033[3m10% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("You awake to your roommate's bird alarm that supposed to wake people " +
@@ -349,13 +350,13 @@ public class Storyline {
         if(choice == 1) {
             System.out.println("Your roommate is unhappy and tells you to shut up. You two fight." +
                     " You both end up awake and grumpy.");
-            //FIXME -10SI @Player
+            player.changeSI(10);
         }
         else {
             System.out.println("You wake up and fumble around their alarm clock. It's confusing " +
                     "but you figure it out. Your roommate awakes now and you exchange polite " +
                     "\"mornings\". All is well.");
-            //FIXME +10SI @Player
+            player.changeSI(-10);
         }
 
         System.out.println("You walk to Rand for breakfast. But it hasn't opened yet so you grab " +
@@ -364,7 +365,7 @@ public class Storyline {
                 "to meet a fellow engineer who is an upperclassman.");
         System.out.println("While you were able to find Featheringill Hall on time, you get " +
                 "confused inside.");
-        //FIXME add featheringill to memory map @Environment
+        Environment.addLocation("Featheringill Hall", memoryMap);
 
         choicePrompt();
         System.out.println("Do you ask a nearby person for directions/try to find the meeting " +
@@ -379,7 +380,7 @@ public class Storyline {
             System.out.println("You're already late to your meeting and so you decide to take " +
                     "your time exploring Featheringill. You discover a munchie mart around the " +
                     "corner and decide to buy three dishes of store-styled stale sushi. Worth it.");
-            //FIXME +10HP @Player dont forget to set it and check for it for while loop
+            player.changeHP(-10);
         }
 
         System.out.println("After V-squared Mentor meeting, you are tired. You want to lie on the" +
@@ -393,7 +394,8 @@ public class Storyline {
                     "feel eyes watching you but you don't care. This is part of your VU " +
                     "Experience. Suddenly you hear a loud scream nearby.");
             System.out.println("\n THERE IS A ZOMBIE NEARBY!");
-            //FIXME add zombie attack here
+            System.out.println("Press R to Run or F to Fight");
+            Environment.zombieEncounter(player);
         }
         else {
             System.out.println("You enjoy a peaceful afternoon.");
@@ -408,18 +410,19 @@ public class Storyline {
         if(choice == 1) {
             System.out.println("Someone nearby hears you complaining and joins in. You make a new" +
                     " friend :). Bonding over the worst.");
-            //FIXME add +10SI @Player
+            player.changeSI(-10);
         }
         else {
             System.out.println("You keep to yourself and make no new friends at Founders Walk. " +
                     "It's okay, pshaw.");
-            //FIXME -10 SI @Player
+            player.changeSI(10);
         }
 
         System.out.println("*******End Day Three*******");
 
     }
-    public static void dayTwo(Scanner reader, int choice, Player player) {
+
+    public static void dayTwo(Scanner reader, int choice, Player player, String[] memoryMap) {
         //Day 2
         System.out.println("Friday: Noon \033[3m5% " +
                 "infected\033[0m \n*****************************\n");
@@ -435,15 +438,14 @@ public class Storyline {
         System.out.println("Do you wander around campus/wander around the Hillsboro area?");
         choice = getValidChoice(reader);
         if(choice == 1) {
-            //FIXME add campus locations
             System.out.println("You discover these secret tunnels underneath the building of " +
                     "Stevenson. As you wander, you hear a moan behind and you hide. In the " +
                     "tunnels is a person strapped to a hospital bed!! Their skin is turning " +
                     "greenish and peeling off. Their eyes are pure white. Scared, you flee. What " +
                     "a scary experience!");
+            Environment.addLocation("Stevenson Building", memoryMap);
         }
         else {
-            //FIXME add hillsboro taste of nashville locations?/commons locations of each house??
             System.out.println("As you are crossing the busy street to get to the burger place " +
                     "known as Hopdoddy, a car is coming at you full speed. You're in the middle " +
                     "of the road! You run towards the other side but the car slams into your foot" +
@@ -483,14 +485,15 @@ public class Storyline {
         }
         else {
             System.out.println("\nYou're tired by the time you finally find your Visions group.");
-            //FIXME -10HP @Player -10SI @Player
+            player.changeSI(10);
+            player.changeHP(10);
         }
 
         System.out.println("Visions is full of awkward icebreakers but the group seems generally " +
                 "nice so you are relieved. Yet you still dread the next meeting. As a group, you " +
                 "head over to Langford Auditorium to watch a skit. You have realized you're " +
                 "soaked in sweat in this 90 degree weather by the time you get there.");
-        //FIXME add Langford Auditorium to memory map @Environment
+        Environment.addLocation("Langford Auditorium", memoryMap);
 
         choicePrompt();
         System.out.println("Do you remain in your soaked clothes/quickly run back to your dorm to" +
@@ -502,8 +505,10 @@ public class Storyline {
                     "clothes and a slight smell coming from you, no one sits besides you. It's " +
                     "okay though because you estimate that by the time the skit is over, your " +
                     "sweat will have dried and no longer have sweat stains. You missed the entire" +
-                    " skit thinking about sweating.");
-            //FIXME -10 SI @Player for sweating
+                    " skit thinking about sweating. Later as a group, you explore the roof of " +
+                    "Light Hall.");
+            player.changeSI(10);
+            Environment.addLocation("Light Hall", memoryMap);
         }
         else {
             System.out.println("You decide to run back to your dorm causing you to sweat even " +
@@ -520,7 +525,6 @@ public class Storyline {
 
         System.out.println("You grab a quick meal with friends afterwards at Satay, a Thai " +
                 "restaurant. They have delicious boba.");
-        //FIXME add Satay to memory map @Environment
 
         System.out.println("Night falls and you get ready for bed. Your roommate confesses to you" +
                 " that they must blast white noise in order to fall asleep. You require dead " +
@@ -532,17 +536,17 @@ public class Storyline {
         if(choice == 1) {
             System.out.println("You come to a civil agreement and decide it is okay to softly " +
                     "play their white noise.");
-            //FIXME +10 SI @Player
+            player.changeHP(-10);
         }
         else {
             System.out.println("You can't sleep all night long and are exhausted in the morning.");
-            //FIXME -10 HP @Player
+            player.changeHP(10);
         }
 
         System.out.println("*******End Day Two*******");
     }
 
-    public static void dayOne(Scanner reader, int choice, Player player) {
+    public static void dayOne(Scanner reader, int choice, Player player, String [] memoryMap) {
         //Day 1
         System.out.println("Thursday: 6:00pm Move-In Day\n*****************************\n");
         System.out.println("Welcome to Vanderbelt University! We're thrilled to welcome you to " +
@@ -557,11 +561,11 @@ public class Storyline {
         choice = getValidChoice(reader);
 
         if(choice == 1) {
-            //FIXME commons location is found, memory map accessed @Environment
+            Environment.addLocation("Commons Dining Hall", memoryMap);
         }
         else if(choice == 2) {
-            //FIXME -10 HP due to tiredness from wandering @Player, commons location is found,
-            // memory map accessed @Environment
+            player.changeHP(10);
+            Environment.addLocation("Commons Dining Hall", memoryMap);
         }
 
         //FIXME Narrator sout statement explaining how to access memory map and what it is?
@@ -607,7 +611,8 @@ public class Storyline {
             System.out.println("\n\" Hey dude! I'm Caleb from San Fran. Heard the food at Commons" +
                     " was gnarly. Boutta head over to Rand with a few of the dudes. Wanna " +
                     "come?\"\n");
-            //FIXME rand location is found, memory map accessed @Environment
+
+            Environment.addLocation("Rand Dining Hall", memoryMap);
             System.out.println("You've arrived at Rand Dining Hall with your new friends. You " +
                     "discover Rand Bowls, one of the more appealing food options.");
         }
