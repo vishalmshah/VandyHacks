@@ -37,7 +37,7 @@ public class Environment {
     }
 
     //method that presents you with options when you encounter a zombie
-    public static void zombieEncounter() {
+    public static void zombieEncounter(Player character) {
         Scanner scnr = new Scanner(System.in);
         //int HP = getHP(); FIXME
         char choice = getValidChar(scnr);
@@ -46,7 +46,7 @@ public class Environment {
             //setHP(HP - 10); FIXME: need method
         } else {
             //chose to fight
-            boolean winOrLose = fightZombie();
+            boolean winOrLose = fightZombie(character);
             //FIXME: need to update something so when called to endGame method, the game ends
         }
     }

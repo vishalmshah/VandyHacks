@@ -5,16 +5,18 @@ import java.util.*;
 public class Storyline {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        int choice;
+        int choice = 0;
         Player mainguy = new Player();
 
         int hp = mainguy.getHP();
 
         //FIXME while HP is above certain level if not then end game??
-        while()
+//        while()
         dayOne(reader, choice, mainguy);
         dayTwo(reader, choice, mainguy);
         dayThree(reader, choice, mainguy);
+
+        daySix(reader, choice, mainguy);
 
         /*Format for days
         make separate method dayFive, daySix, etc. should have the same parameters.
@@ -47,6 +49,73 @@ public class Storyline {
          have done so far
          */
 
+    }
+
+    public static void daySix(Scanner reader, int choice, Player player) {
+        System.out.println("Tuesday: 9:00am \033[3m50% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("You wake up a little stressed. Or maybe you're just hungry. " +
+                "You should probably go eat something.");
+
+        choicePrompt();
+        System.out.println("Go to the Munchie Mart/Go to Commons");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You pick up some frozen food at Munchie");
+            // FIXME: Health +10HP
+        }
+        else {
+            System.out.println("Your Commons food is a little strange tasting. You" +
+                    " get a stomachache");
+            // FIXME: Health -5HP
+        }
+
+        System.out.println("You see a group of people outside of commons as you exit." +
+                " You want to make more friends.");
+
+        choicePrompt();
+        System.out.println("Do you smile and wave/go talk to them");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("They stare at you deadpan, their eyes tracking you as you walk" +
+                    " around the corner and pass them. You swear you saw one of them eating a finger");
+        }
+        else {
+            System.out.println("As you walk towards them, you notice an unusual odor." +
+                    " Every step you take, you feel the stench heighten in intensity." +
+                    " You start to second guess yourself, but commit to the interaction." +
+                    " As you're about to introduce yourself, you notice their tattered" +
+                    " and blood-stained clothing. They're ZOMBIES!");
+            // FIXME: Zombie attack
+        }
+
+        System.out.println("You return to your dorm. After that encounter, you need to de-stress");
+
+        choicePrompt();
+        System.out.println("Do you find people to hang out with/Play video games in your dorm");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            if(51 >= 50) {//FIXME
+                System.out.println("As you walk back to your dorm late at night, you hear voices talking.");
+                System.out.println("\"Bro! Tonight was so fun\"");
+                System.out.println("\"Yeah bro we went wild!\"");
+                System.out.println("\"Sig Chi brothers for lyfe!\"");
+                System.out.println("You turn your head to see zombies wearing tattered pink polos and" +
+                        " khaki shorts walking in your direction. They look at you");
+                System.out.println("\"What did you think bro?\"");
+                System.out.println("It's the frats. The had a party. \033[3mOh no\033[0m");
+                // FIXME: Zombie fight
+            } else {
+                System.out.println("You try to make friend, but you fail"); // FIXME: This whole frat boi thing
+            }
+        }
+        else {
+            System.out.println("You play games and talk to your roommate");
+        }
+
+        System.out.println("You go to sleep late");
+
+        System.out.println("*******End Day Six*******");
     }
 
     //static methods

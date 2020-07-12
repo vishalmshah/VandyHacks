@@ -50,12 +50,14 @@ public class Player {
 
     public int changeHP(int lossOfHP) {
         HP = HP - lossOfHP;
+        if(HP <= 0) System.exit(0);
         return HP;
     }
 
     public int changeSI(int lossOfSI) {
         SI = SI - lossOfSI;
-        return HP;
+        if(SI <= 0) System.exit(0);
+        return SI;
     }
 
 }
