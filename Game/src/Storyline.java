@@ -51,6 +51,72 @@ public class Storyline {
 
     //static methods
     public static void dayFour(Scanner reader, int choice, Player player) {
+        System.out.println("Sunday: 10:00am \033[3m25% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("Today you have your advisor meeting. You get ready and head over to " +
+                "Featheringill.");
+
+        choicePrompt();
+        System.out.println("Do you leave 5 minutes early and skip breakfast/leave on time and eat" +
+                " breakfast?");
+        choice = getValidChoice(reader);
+
+        if(choice == 1) {
+            System.out.println("Turns out you had wrongly estimated the time. But thankfully " +
+                    "leaving early means you arrived on time. But you are hungry and your stomach" +
+                    " grumbles loudly. You know everyone can hear it.");
+            //FIXME -10 HP @Player, +10 SI @Player
+        }
+        else {
+            System.out.println("Turns out you had wrongly estimated the time. And so leaving on " +
+                    "time means you're late to the meeting. Not a great first impression. But at " +
+                    "least you're not hungry!");
+            //FIXME +10HP @Player, -10 SI @Player
+        }
+
+        System.out.println("As you head back to Commons, you notice a man trailing you in the " +
+                "distance. He looks like a creepy Saint Nicholas. He has a scraggly white beard " +
+                "and wearing fluffy red clothes. He is limping. Isn't he a physics professor " +
+                "here?");
+
+        choicePrompt();
+        System.out.println("Do you engage with creepy Santa/run away and go back to dorm?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("He's a ZOMBIE!!");
+            //FIXME insert zombie attack here
+        }
+        else {
+            System.out.println("As you walk away, you notice that he's wearing your friend's " +
+                    "watch. Weird...");
+        }
+
+        System.out.println("Once back in your dorm, your RA pops in.");
+        System.out.println("\"Hey, I see you just got back. We have a floor meeting in five. Just" +
+                " a reminder. See you there.\" Your RA is kinda awkward but she seems nice enough");
+        System.out.println("You arrive at the floor meeting and sit in a couch in the corner. You" +
+                " don't see your roommate.");
+
+        choicePrompt();
+        System.out.println("You get a call from your roommate in the middle of the meeting. Do " +
+                "you answer/decline it?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You leave the meeting to take the call. You hear muffled noise " +
+                    "and panting. \"Help me! There's a dude and he's chasing after me! I'm " +
+                    "outside Peabody Library!\"");
+            System.out.println("Could it be...that creepy Santa??");
+
+            choicePrompt();
+            System.out.println("Do you go to Peabody Library/return to meeting?");
+            int choice2 = getValidChoice(reader);
+            if(choice2 == 1) {
+                System.out.println("They sounded super scared. You're worried so you ditch the " +
+                        "floor meeting. Outside Peabody, there is nothing but darkness...");
+                System.out.println("\nSuddenly something grabs you!! A ZOMBIE!!!");
+                //FIXME insert zombie attack
+            }
+        }
 
     }
     public static void dayThree(Scanner reader, int choice, Player player) {
