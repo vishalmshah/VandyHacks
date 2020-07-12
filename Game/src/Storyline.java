@@ -114,7 +114,24 @@ public class Storyline {
         }
 
         System.out.println("You grab a quick meal with friends afterwards at Satay, a Thai " +
-                "restaurant.");
+                "restaurant. They have delicious boba.");
+        //FIXME add Satay to memory map @Environment
+
+        System.out.println("Night falls and you get ready for bed. Your roommate confesses to you" +
+                " that they must blast white noise in order to fall asleep. You require dead " +
+                "silence to sleep.");
+
+        choicePrompt();
+        System.out.println("Do you confront them/do not confront them and just try to sleep?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You come to a civil agreement and decide it is okay to softly " +
+                    "play their white noise.");
+            //FIXME +10 SI @Player
+        }
+        else {
+
+        }
 
 
     }
