@@ -6,70 +6,104 @@ public class Storyline {
         Random randy = new Random(11);
         Scanner reader = new Scanner(System.in);
 
+        //Day 1
+        System.out.println("Thursday: 6:00pm Move-In Day\n*****************************\n");
         System.out.println("Welcome to Vanderbelt University! We're thrilled to welcome you to " +
                 "our community. Go ahead and get settled in your freshmen residential college.");
 
         int house = randy.nextInt();
         String houseName;
-        //method to call houseName from @Environment
-        System.out.println("Your assigned residential house is " + houseName);
+        //FIXME method to call houseName from @Environment
+        System.out.println("\nYour assigned residential house is " + houseName + "\nYou walk to " +
+                "your dorm room. Your roommate is already there.");
 
         choicePrompt();
         System.out.println("Do you talk to your roommate/ignore your roommate?");
-        int choice = reader.nextInt();
+        int choice = getValidChoice(reader);
 
         if(choice == 1) {
-            //FIXME commons location is found, memory map accessed
+            //FIXME commons location is found, memory map accessed @Environment
         }
         else if(choice == 2) {
-            //FIXME -10 HP due to tiredness from wandering, commons location is found, memory map
-            // accessed
+            //FIXME -10 HP due to tiredness from wandering @Player, commons location is found,
+            // memory map accessed @Environment
         }
 
-        //FIXME sout statement explaining how to access memory map and what it is?
+        //FIXME Narrator sout statement explaining how to access memory map and what it is?
 
-        System.out.println("You've arrived at Commons Dining Hall. You see groups of people " +
-                "milling about. ");
+        System.out.println("\nYou've arrived at Commons Dining Hall. You see groups of people " +
+                "milling about.");
         choicePrompt();
         System.out.println("Do you talk/ignore?" );
-        choice = reader.nextInt();
+        choice = getValidChoice(reader);
 
         if(choice == 1) {
-            System.out.println("You introduce yourself");
-            System.out.println("\n \" Hello my name is Brett! I'm so excited to be here at " +
-                    "Vandy!!\" ");
-            System.out.println("I'm an econ major with a minor in HOD and can't wait to rush " +
+            System.out.println("You introduce yourself. They launch into their introduction.");
+            System.out.println("\n\"Hello my name is Brett! I'm so excited to be here at " +
+                    "Vandy!! ");
+            System.out.print("\nI'm an econ major with a minor in HOD and can't wait to rush " +
                     "KA!!\nI'm from Alabama by the way. Can't wait for the football games and " +
-                    "tailgates!");
-            System.out.println("\n You wonder to yourself what is HOD...");
+                    "tailgates!\"\n");
+            System.out.print("\n You wonder to yourself what is HOD...?");
         }
 
+        System.out.println("A stranger approaches you.");
+        choicePrompt();
+        System.out.println("Do you talk/ignore?");
+        choice = getValidChoice(reader);
 
+        if(choice == 1) {
+            System.out.println("They look a little confused.");
+            System.out.println("\n\"Hey I'm Kayleigh, I think I might be pre-med and currently " +
+                    "double majoring in Biology and Neuroscience, but that might change! \nDid " +
+                    "you " +
+                    "hear about Chet last night?? Big yikes!\"\n");
+            System.out.println("You want to ask her more about Chet but she has walked away " +
+                    "around. Rude.");
+        }
 
+        System.out.println("Another stranger walks towards you.");
+        choicePrompt();
+        System.out.println("Do you talk/ignore?");
+        choice = getValidChoice(reader);
 
+        if(choice == 1) {
+            System.out.println("It's a guy you recognize from earlier.");
+            System.out.println("\n\" Hey dude! I'm Caleb from San Fran. Heard the food at Commons" +
+                    " was gnarly. Boutta head over to Rand with a few of the dudes. Wanna " +
+                    "come?\"\n");
+            //FIXME rand location is found, memory map accessed @Environment
+            System.out.println("You've arrived at Rand Dining Hall with your new friends.");
+        }
 
     }
 
+    //static methods
+
+    /**
+     * encode-
+     * repeats same output before each choice aspect
+     */
     public static void choicePrompt() {
-        System.out.println("CHOICE: ");
+        System.out.println("\n\nCHOICE: ");
         System.out.println("Press 1/2 to make your decision");
     }
 
     /**
      * encode-
-     * this method prompts the user for a valid int input (incorporates hasNext() methods)
+     * prompts the user for a valid int input (incorporates hasNext() methods)
      * Precondition: none
      * @param reader -- used to read in the user's input test score
      * @return -- the int that the user entered
      */
-    public static int getValidIntScore(Scanner reader) {
-        int score = -1;
+    public static int getValidChoice(Scanner reader) {
+        int choice = 0;
 
         //the next line is a code tidbit provided by Prof. Dan Arena
         String test = reader.nextLine().trim();
 
         //while loop that runs the program until the user gives a valid input
-        while (score < 0 || score > 100) {
+        while (choice < 1 || choice > 2) {
 
             //the next line is a code tidbit provided by Prof. Dan Arena
             Scanner reader2 = new Scanner(test);
@@ -80,29 +114,27 @@ public class Storyline {
                 //the next line is a code tidbit provided by Prof. Dan Arena
                 if (reader2.hasNextInt()) { //tests if it is an int using hasNext(), if true,
                     // stores the input
-                    score = reader2.nextInt();
+                    choice = reader2.nextInt();
 
                     //if statement tests if the int is not within the valid range and prompts again
-                    if (score < 0 || score > 100) {
-                        System.out.println("Test score must be a value between 0-100 inclusive. Enter the" +
-                                " test score:");
+                    if (choice < 0 || choice > 2) {
+                        System.out.println("Input must be either 1 or 2. Please try again");
                         test = reader.nextLine().trim();
                     }
                 }
                 else { //goes with the second if, tests if the user did not input an int and
                     // prompts again
-                    System.out.println("Test score must be a value between 0-100 inclusive. Enter" +
-                            " the test score:");
+                    System.out.println("Input must be either 1 or 2. Please try again");
                     test = reader.nextLine().trim();
                 }
             }
             //this else goes with the first if and is for if the user doesn't put anything
             else {
-                System.out.println("Test score must be a value between 0-100 inclusive. Enter the test score:");
+                System.out.println("Input must be either 1 or 2. Please try again");
                 test = reader.nextLine().trim();
             }
         }
-        return score;
+        return choice;
     }
 
 }
