@@ -163,4 +163,26 @@ public class Environment {
         }
         memoryMap[position] = location;
     }
+
+    public static void displayMemoryMap (String[] memoryMap) {
+        for (int index = 0; index <= memoryMap.length - 1; index++) {
+            if (memoryMap[index] != null) {
+                if (memoryMap[index].equalsIgnoreCase("Commons")) {
+                    System.out.println("Enter the letter C to go to Commons");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Rand")) {
+                    System.out.println("Enter the letter R to go to Rand");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Satay")) {
+                    System.out.println("Enter the letter S to go to Satay");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Langford Auditorium")) {
+                    System.out.println("Enter the letter L to go to Langford Auditorium");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Featheringill")) {
+                    System.out.println("Enter the letter F to go to Featheringill");
+                }
+            }
+        }
+    }
 }
