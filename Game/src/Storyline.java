@@ -104,10 +104,17 @@ public class Storyline {
             System.out.println("You decide to run back to your dorm causing you to sweat even " +
                     "more. You apply your deodorant and change shirts. You meet your Head of " +
                     "House professor on the way out.");
-            choicePrompt();
-            System.out.println("Do you give your Head of House professor time of day/run away and" +
-                    " rejoin your group?);
+            System.out.println("She starts talking. You are forced to listen.");
+            System.out.println("\n\" Hey there kiddo! Hope you're enjoying your first few days " +
+                    "here. Before you even say anything, don't worry, I'm not here to monitor " +
+                    "your every move LOL. I'm a cool mom, get it? I'm just here to make sure your" +
+                    " Vandy experience goes as smoothly as possible! Let me know if there is " +
+                    "anything you need and ANCHOR DOWN!!\"\n");
+            System.out.println("You run back to the auditorium and watch the skit. It is okay.");
         }
+
+        System.out.println("You grab a quick meal with friends afterwards at Satay, a Thai " +
+                "restaurant.");
 
 
     }
