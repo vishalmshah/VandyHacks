@@ -15,7 +15,9 @@ public class Storyline {
         dayTwo(reader, choice, mainguy);
         dayThree(reader, choice, mainguy);
         dayFour(reader, choice, mainguy);
-
+        dayFive(reader, choice, mainguy);
+        daySix(reader, choice, mainguy);
+        daySeven(reader, choice, mainguy);
         dayEnd(reader);
 
         /*Format for days
@@ -58,6 +60,127 @@ public class Storyline {
                 "does it say?");
         System.out.println("\"Please return to campus to retrieve your belongings.\"");
         System.out.println("\n\t\t\t\tEND");
+    }
+
+    public static void daySeven(Scanner reader, int choice, Player player) {
+        System.out.println("Wednesday: 9:00am \033[3m100% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("You wake up to an email and 15 missed calls from your parents"+
+                " and new friends");
+        System.out.println("Dear Vanderbelt student, all classes are cancelled for the" +
+                " remainder of the semester. Please go home");
+        System.out.println("You look over at your roommate. They are sitting in their chair" +
+                " staring at you");
+        System.out.println("You ask: Hey, how are you getting home?");
+        System.out.println("Your roommate jumps at you and starts to attack");
+        // FIXME: Zombie fight sequence
+
+        System.out.println("You need to get out. You anxiously stuff whatever you" +
+                " can into a backpack");
+
+        choicePrompt();
+        System.out.println("Go out the door/go out the window");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You open the door and 20 zombies turn at you. You should" +
+                    " use the window.");
+        }
+
+        System.out.println("Out of breath, you glance behind you to see that the zombies have broken" +
+                " through your door. You look over at the window, and decide to make the 3 story jump" +
+                " into the construction dirt pile below. You hit the ground and immediately run for" +
+                " cover in the bushes to check your email. It reads:");
+        System.out.println("\"Students please report to Light Hall for emergency evacuation\"");
+
+        choicePrompt();
+        System.out.println("Do you find other survivors and go in a group/head straight to Light Hall");
+        choice = getValidChoice(reader);
+        if(choice == 1) { // TODO: A short version of what is actually supposed to happen
+            System.out.println("You find other survivors and start moving");
+        } else {
+            System.out.println("You start walking and meet a small group on the way." +
+                    " You join them");
+        }
+
+        for(int i = 0; i < 3; ++i) {
+            System.out.println("You and your group search intently");
+            // FIXME: A couple zombie attacks here
+        }
+
+        System.out.println("You find Light Hall! You climb the stairs to the roof");
+        System.out.println("A helicopter waits. A lone zombie stands in your way");
+        // FIXME: ZOmbie fight
+        System.out.println("You let out a sigh of relief as you board the helicopter," +
+                " escaping the zombies' grasp");
+
+        System.out.println("*******End Day Seven*******")
+    }
+
+    public static void daySix(Scanner reader, int choice, Player player) {
+        System.out.println("Tuesday: 9:00am \033[3m50% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("You wake up a little stressed. Or maybe you're just hungry. " +
+                "You should probably go eat something.");
+
+        choicePrompt();
+        System.out.println("Go to the Munchie Mart/Go to Commons");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You pick up some frozen food at Munchie");
+            // FIXME: Health +10HP
+        }
+        else {
+            System.out.println("Your Commons food is a little strange tasting. You" +
+                    " get a stomachache");
+            // FIXME: Health -5HP
+        }
+
+        System.out.println("You see a group of people outside of commons as you exit." +
+                " You want to make more friends.");
+
+        choicePrompt();
+        System.out.println("Do you smile and wave/go talk to them");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("They stare at you deadpan, their eyes tracking you as you walk" +
+                    " around the corner and pass them. You swear you saw one of them eating a finger");
+        }
+        else {
+            System.out.println("As you walk towards them, you notice an unusual odor." +
+                    " Every step you take, you feel the stench heighten in intensity." +
+                    " You start to second guess yourself, but commit to the interaction." +
+                    " As you're about to introduce yourself, you notice their tattered" +
+                    " and blood-stained clothing. They're ZOMBIES!");
+            // FIXME: Zombie attack
+        }
+
+        System.out.println("You return to your dorm. After that encounter, you need to de-stress");
+
+        choicePrompt();
+        System.out.println("Do you find people to hang out with/Play video games in your dorm");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            if(51 >= 50) {//FIXME
+                System.out.println("As you walk back to your dorm late at night, you hear voices talking.");
+                System.out.println("\"Bro! Tonight was so fun\"");
+                System.out.println("\"Yeah bro we went wild!\"");
+                System.out.println("\"Sig Chi brothers for lyfe!\"");
+                System.out.println("You turn your head to see zombies wearing tattered pink polos and" +
+                        " khaki shorts walking in your direction. They look at you");
+                System.out.println("\"What did you think bro?\"");
+                System.out.println("It's the frats. The had a party. \033[3mOh no\033[0m");
+                // FIXME: Zombie fight
+            } else {
+                System.out.println("You try to make friend, but you fail"); // FIXME: This whole frat boi thing
+            }
+        }
+        else {
+            System.out.println("You play games and talk to your roommate");
+        }
+
+        System.out.println("You go to sleep late");
+
+        System.out.println("*******End Day Six*******");
     }
 
     public static void dayFive(Scanner reader, int choice, Player player) {
