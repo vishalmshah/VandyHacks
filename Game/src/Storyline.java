@@ -6,13 +6,15 @@ public class Storyline {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         int choice;
+        Player mainguy = new Player();
+
         dayOne(reader, choice);
 
 
     }
 
     //static methods
-    public static void dayTwo(Scanner reader, int choice) {
+    public static void dayTwo(Scanner reader, int choice, Player player) {
         //Day 2
         System.out.println("Friday: Noon \033[3m5% " +
                 "infected\033[0m \n*****************************\n");
@@ -20,7 +22,8 @@ public class Storyline {
         System.out.println("Do you wake your roommate up to go explore/go explore by yourself?");
         choice = getValidChoice(reader);
         if(choice == 2) {
-            //FIXME -10 SI @Player BLAHGNOSGNGA
+            player.changeSI(-10);
+
         }
 
         System.out.println("\n");
@@ -40,7 +43,7 @@ public class Storyline {
 
         choicePrompt();
         System.out.println("Do you talk to your roommate/ignore your roommate?");
-        /*choice = getValidChoice(reader);
+        choice = getValidChoice(reader);
 
         if(choice == 1) {
             //FIXME commons location is found, memory map accessed @Environment
@@ -50,7 +53,7 @@ public class Storyline {
             // memory map accessed @Environment
         }
 
-        //FIXME Narrator sout statement explaining how to access memory map and what it is?*/
+        //FIXME Narrator sout statement explaining how to access memory map and what it is?
 
         System.out.println("\nYou've arrived at Commons Dining Hall. You see groups of people " +
                 "milling about.");

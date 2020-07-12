@@ -4,7 +4,7 @@ public class Player {
     private int HP;
     private int SI;
     private int foodCount;
-    private string location;
+    private String location;
 
     //default constructor
     public Player () {
