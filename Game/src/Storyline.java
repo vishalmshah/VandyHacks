@@ -14,15 +14,17 @@ public class Storyline {
         dayThree(reader, choice, mainguy);
 
 
-
     }
 
     //static methods
+    public static void dayFour(Scanner reader, int choice, Player player) {
+
+    }
     public static void dayThree(Scanner reader, int choice, Player player) {
         System.out.println("Saturday: 9:00am \033[3m10% " +
                 "infected\033[0m \n*****************************\n");
         System.out.println("You awake to your roommate's bird alarm that supposed to wake people " +
-                "up naturally. It did not feel natural. They continue to sleep...);
+                "up naturally. It did not feel natural. They continue to sleep...");
 
         choicePrompt();
         System.out.println("Do you wake your roommate and tell them to turn off alarm/wake up " +
