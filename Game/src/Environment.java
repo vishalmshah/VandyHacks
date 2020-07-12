@@ -33,7 +33,7 @@ public class Environment {
 
      */
     public static void main(String[] args) {
-
+        String memoryMap[] = new String[10]; //array with maximum number of locations as 10
     }
 
     //method that presents you with options when you encounter a zombie
@@ -152,5 +152,15 @@ public class Environment {
             default:
                 return "Try Again";
         }
+    }
+
+    public static void addLocation (String location, String[] memoryMap) {
+        int position = 0;
+        for (int index = 0; index <= memoryMap.length - 1; index++) {
+            if (memoryMap[index] != null) {
+                position++;
+            }
+        }
+        memoryMap[position] = location;
     }
 }
