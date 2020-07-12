@@ -50,13 +50,23 @@ public class Player {
 
     public int changeHP(int lossOfHP) {
         HP = HP - lossOfHP;
-        if(HP <= 0) System.exit(0);
+        System.out.println("You lose " + lossOfHP + "HP");
+        System.out.println("HP: " + HP);
+        if(HP <= 0) {
+            System.out.println("You have died. Better luck next time.");
+            System.exit(0);
+        }
         return HP;
     }
 
     public int changeSI(int lossOfSI) {
         SI = SI - lossOfSI;
-        if(SI <= 0) System.exit(0);
+        System.out.println("You lose " + lossOfSI + "HP");
+        System.out.println("HP: " + SI);
+        if(SI <= 0) {
+            System.out.println("You have died. Better luck next time.");
+            System.exit(0);
+        }
         return SI;
     }
 
