@@ -3,14 +3,12 @@ import java.util.*;
 public class Player {
     private int HP;
     private int SI;
-    private int foodCount;
     private String location;
 
     //default constructor
     public Player () {
         HP = 100;
         SI = 100;
-        foodCount = 0;
         location = "Dorm Room";
     }
 
@@ -18,12 +16,8 @@ public class Player {
         HP = userHP;
     }
 
-    public void setSI(int userSI) {
+    public void setSI(int userSI) { 
         SI = userSI;
-    }
-
-    public void setFoodCount(int userFoodCount) {
-        foodCount = userFoodCount;
     }
 
     public void setLocation(String userLocation) {
@@ -48,10 +42,6 @@ public class Player {
             System.out.println("Be careful, your SI has dropped dangerously low");
         }
         return this.SI;
-    }
-
-    public int getFoodCount() {
-        return this.foodCount;
     }
 
     public String getLocation() {
