@@ -11,10 +11,10 @@ public class Storyline {
         int hp = mainguy.getHP();
 
         //FIXME while HP is above certain level if not then end game??
-        while()
         dayOne(reader, choice, mainguy);
         dayTwo(reader, choice, mainguy);
         dayThree(reader, choice, mainguy);
+        dayFour(reader, choice, mainguy);
 
         /*Format for days
         make separate method dayFive, daySix, etc. should have the same parameters.
@@ -116,7 +116,16 @@ public class Storyline {
                 System.out.println("\nSuddenly something grabs you!! A ZOMBIE!!!");
                 //FIXME insert zombie attack
             }
+            else {
+                System.out.println("You return to meeting.");
+            }
         }
+        else {
+            System.out.println("You return to meeting.");
+        }
+
+        System.out.println("What an eventful day!");
+        System.out.println("*******End Day Four*******");
 
     }
     public static void dayThree(Scanner reader, int choice, Player player) {
