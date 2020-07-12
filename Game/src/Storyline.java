@@ -56,7 +56,58 @@ public class Storyline {
         System.out.println("Do you ask stranger for help finding your group/wander around and " +
                 "find them on your own?");
         choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("\nThe stranger has glossy eyes and a puffy face. They slur their " +
+                    "words a little. You wonder if they are okay.");
+            System.out.println("\n\" Hi!!!! My name is Naya and I'm from Chicago, well not " +
+                    "really, but you wouldn't know where Naperville is. Anyways...I'm really " +
+                    "really REALLY excited to be here. My mommy and daddy told me Vandy was the " +
+                    "school for me. And when I came here, I just fell in love with its southern " +
+                    "charm. Do you want this Rand cookie? Someone gave it to me but I'm on a keto" +
+                    " " +
+                    "diet so ya know...\"");
+            choicePrompt();
+            System.out.println("\nDo you take cookie/refuse cookie?");
+            int choice2 = getValidChoice(reader);
+            if(choice2 == 1)
+                System.out.println("\nYou've heard about the reknown Rand cookies and are eager " +
+                        "to " +
+                        "try them. However, you feel a little sick afterwards. Weird...");
+            else
+                System.out.println("\nYou say no and go on your way to Visions.");
+        }
+        else {
+            System.out.println("\nYou're tired by the time you finally find your Visions group.");
+            //FIXME -10HP @Player -10SI @Player
+        }
 
+        System.out.println("Visions is full of awkward icebreakers but the group seems generally " +
+                "nice so you are relieved. Yet you still dread the next meeting. As a group, you " +
+                "head over to Langford Auditorium to watch a skit. You have realized you're " +
+                "soaked in sweat in this 90 degree weather by the time you get there.");
+        //FIXME add Langford Auditorium to memory map @Environment
+
+        choicePrompt();
+        System.out.println("Do you remain in your soaked clothes/quickly run back to your dorm to" +
+                " apply deodorant?");
+        choice = getValidChoice(reader);
+
+        if(choice == 1) {
+            System.out.println("You decide to stick with your group. However, with your soaked " +
+                    "clothes and a slight smell coming from you, no one sits besides you. It's " +
+                    "okay though because you estimate that by the time the skit is over, your " +
+                    "sweat will have dried and no longer have sweat stains. You missed the entire" +
+                    " skit thinking about sweating.");
+            //FIXME -10 SI @Player for sweating
+        }
+        else {
+            System.out.println("You decide to run back to your dorm causing you to sweat even " +
+                    "more. You apply your deodorant and change shirts. You meet your Head of " +
+                    "House professor on the way out.");
+            choicePrompt();
+            System.out.println("Do you give your Head of House professor time of day/run away and" +
+                    " rejoin your group?);
+        }
 
 
     }
