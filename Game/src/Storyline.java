@@ -8,11 +8,44 @@ public class Storyline {
         int choice;
         Player mainguy = new Player();
 
+        int hp = mainguy.getHP();
+
         //FIXME while HP is above certain level if not then end game??
+        while()
         dayOne(reader, choice, mainguy);
         dayTwo(reader, choice, mainguy);
         dayThree(reader, choice, mainguy);
 
+        /*Format for days
+        make separate method dayFive, daySix, etc. should have the same parameters.
+        System.out.println("Saturday: 9:00am \033[3m10% " +
+                "infected\033[0m \n*****************************\n");
+         insert this print statement at beginnging, replace saturday and time. After [3m is 10%
+         infected. That is the text that is italicized. Replace 10% infected with the infected
+         percentage for your day. the text that is italicized is in [3m to \033.
+
+         reference google doc and begin print statements
+         when reaching a choice
+
+         first
+         choicePrompt();
+         then type print statement of choice with a / between the options in the text
+         choice = getValidChoice(reader); this makes sure their int input is a valid choice
+         begin if statements for the results of each choice
+         if(count == 1) {
+            ......code...
+         }
+         else {
+            .....code....
+         }
+
+         continue to do until end of day
+         put this printout statement at end, replace three with whatever day number you have
+         System.out.println("*******End Day Three*******");
+
+         don't forget to put your day method in main in the while loop. scroll up to see what I
+         have done so far
+         */
 
     }
 
