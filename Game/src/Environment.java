@@ -158,8 +158,8 @@ public class Environment {
                 if (memoryMap[index].equalsIgnoreCase("Commons")) {
                     System.out.println("Enter the letter C to go to Commons");
                 }
-                if (memoryMap[index].equalsIgnoreCase("Rand")) {
-                    System.out.println("Enter the letter R to go to Rand");
+                if (memoryMap[index].equalsIgnoreCase("Rand Dining Hall")) {
+                    System.out.println("Enter the letter R to go to Rand Dining Hall");
                 }
                 if (memoryMap[index].equalsIgnoreCase("Satay")) {
                     System.out.println("Enter the letter S to go to Satay");
