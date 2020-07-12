@@ -8,12 +8,41 @@ public class Storyline {
         int choice;
         Player mainguy = new Player();
 
-        dayOne(reader, choice);
+        dayOne(reader, choice, mainguy);
+        dayTwo(reader, choice, mainguy);
+
+
 
 
     }
 
     //static methods
+    public static void dayThree(Scanner reader, int choice, Player player) {
+        System.out.println("Saturday: 9:00am \033[3m10% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("You awake to your roommate's bird alarm that supposed to wake people " +
+                "up naturally. It did not feel natural. They continue to sleep...);
+
+        choicePrompt();
+        System.out.println("Do you wake your roommate and tell them to turn off alarm/wake up " +
+                "yourself and turn it off?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("Your roommate is unhappy and tells you to shut up. You two fight." +
+                    " You both end up awake and grumpy.");
+            //FIXME -10SI @Player
+        }
+        else {
+            System.out.println("You wake up and fumble around their alarm clock. It's confusing " +
+                    "but you figure it out. Your roommate awakes now and you exchange polite " +
+                    "\"mornings\". All is well.");
+            //FIXME +10SI @Player
+        }
+
+        System.out.println("You walk to Rand for breakfast. But it hasn't opened yet so you grab " +
+                "food at Food For A Thought cafe at Central Library. ");
+
+    }
     public static void dayTwo(Scanner reader, int choice, Player player) {
         //Day 2
         System.out.println("Friday: Noon \033[3m5% " +
@@ -114,12 +143,30 @@ public class Storyline {
         }
 
         System.out.println("You grab a quick meal with friends afterwards at Satay, a Thai " +
-                "restaurant.");
+                "restaurant. They have delicious boba.");
+        //FIXME add Satay to memory map @Environment
 
+        System.out.println("Night falls and you get ready for bed. Your roommate confesses to you" +
+                " that they must blast white noise in order to fall asleep. You require dead " +
+                "silence to sleep.");
 
+        choicePrompt();
+        System.out.println("Do you confront them/do not confront them and just try to sleep?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You come to a civil agreement and decide it is okay to softly " +
+                    "play their white noise.");
+            //FIXME +10 SI @Player
+        }
+        else {
+            System.out.println("You can't sleep all night long and are exhausted in the morning.");
+            //FIXME -10 HP @Player
+        }
+
+        System.out.println("*******End Day Two*******");
     }
 
-    public static void dayOne(Scanner reader, int choice) {
+    public static void dayOne(Scanner reader, int choice, Player player) {
         //Day 1
         System.out.println("Thursday: 6:00pm Move-In Day\n*****************************\n");
         System.out.println("Welcome to Vanderbelt University! We're thrilled to welcome you to " +
