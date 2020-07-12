@@ -5,7 +5,7 @@ import java.util.*;
 public class Storyline {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        int choice;
+        int choice = 0;
         Player mainguy = new Player();
 
         int hp = mainguy.getHP();
@@ -58,6 +58,81 @@ public class Storyline {
                 "does it say?");
         System.out.println("\"Please return to campus to retrieve your belongings.\"");
         System.out.println("\n\t\t\t\tEND");
+    }
+
+    public static void dayFive(Scanner reader, int choice, Player player) {
+        System.out.println("Monday: 8:00am Classes Start \033[3m35% " +
+                "infected\033[0m \n*****************************\n");
+        System.out.println("You wake up on your floor clutching one of your roommate's pillows." +
+                " As you wipe the drool from your face, you grab your phone to check the time" +
+                " You only have 10 minutes to get to class you are still exhausted from last night");
+
+        choicePrompt();
+        System.out.println("Skip 8am class/go to class");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You crawl back into the glorious slumber you were previously in.");
+            // FIXME: Health +5HP
+        }
+        else {
+            System.out.println("George, the guy sitting next you you starts a conversation with you");
+            System.out.println("\"If you want, you can join me in Eskind Library. I" +
+                    " reserved a room there");
+            System.out.println("You go to Eskind with him but the glass walls in the room make you" +
+                    " feel uncomfortable so you leave early to explore");
+        }
+
+        System.out.println("You hear your stomach growl. You need to eat something");
+
+        choicePrompt();
+        System.out.println("Go to Rand like everyone else/Go to Satay");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You stand in line for an hour waiting for a Rand Bowl, but" +
+                    " now it's time for class");
+            System.out.println("You skip lunch");
+            // FIXME: Health -5HP
+        }
+        else {
+            System.out.println("You eat a wonderful meal");
+            // FIXME: Health +5HP
+        }
+
+        System.out.println("As you leave your last class, you overhear people talking about"+
+                " an email they got that said classes are cancelled for the week. You keep" +
+                " refreshing your email to see if they’re right but don’t see anything until" +
+                " you realize it was in your spam folder.");
+
+        choicePrompt();
+        System.out.println("Continue to study for classes because the email was vague/" +
+                "Stop studying and go back to your dorm");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You feel accomplished after a long study session");
+        }
+        else {
+            System.out.println("You see a figure on the bridge attack George from your 8am");
+            System.out.println("Maybe you should take this more seriously");
+        }
+
+        System.out.println("Later that night in your dorm, you hear people talking about" +
+                " another zombie attack that happened outside of Rand earlier that day. \"Someone" +
+                " posing as a willskilz instructor took a bite out of the president of the climbing team!");
+
+        choicePrompt();
+        System.out.println("Join the conversation/Go to sleep early");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You become closer with this group and they help you feel" +
+                    " less nervous about the zombies");
+            // FIXME +10SI
+        }
+        else {
+            System.out.println("You go to bed stressed and don't get any sleep");
+            // FIXME: -5HP
+        }
+
+        System.out.println("*******End Day Five*******");
     }
 
     public static void dayFour(Scanner reader, int choice, Player player) {
