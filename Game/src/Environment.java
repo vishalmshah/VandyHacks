@@ -155,8 +155,8 @@ public class Environment {
     public static void displayMemoryMap (String[] memoryMap) {
         for (int index = 0; index <= memoryMap.length - 1; index++) {
             if (memoryMap[index] != null) {
-                if (memoryMap[index].equalsIgnoreCase("Commons")) {
-                    System.out.println("Enter the letter C to go to Commons");
+                if (memoryMap[index].equalsIgnoreCase("Commons Dining Hall")) {
+                    System.out.println("Enter the letter C to go to Commons Dining Hall");
                 }
                 if (memoryMap[index].equalsIgnoreCase("Rand Dining Hall")) {
                     System.out.println("Enter the letter R to go to Rand Dining Hall");
@@ -167,8 +167,17 @@ public class Environment {
                 if (memoryMap[index].equalsIgnoreCase("Langford Auditorium")) {
                     System.out.println("Enter the letter L to go to Langford Auditorium");
                 }
-                if (memoryMap[index].equalsIgnoreCase("Featheringill")) {
-                    System.out.println("Enter the letter F to go to Featheringill");
+                if (memoryMap[index].equalsIgnoreCase("Featheringill Hall")) {
+                    System.out.println("Enter the letter F to go to Featheringill Hall");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Stevenson Building")) {
+                    System.out.println("Enter the letter B to go to Stevenson Building");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Peabody Library")) {
+                    System.out.println("Enter the letter P to go to Peabody Library");
+                }
+                if (memoryMap[index].equalsIgnoreCase("Light Hall")) {
+                    System.out.println("Enter the letter H to go to LightHall");
                 }
             }
         }
@@ -198,9 +207,11 @@ public class Environment {
         character (insensitive case so lowercase letters entered are valid) */
         while (!(charStr.equalsIgnoreCase("R")) && !(charStr.equalsIgnoreCase("C"))
                 && !(charStr.equalsIgnoreCase("S")) && !(charStr.equalsIgnoreCase("L"))
-                && !(charStr.equalsIgnoreCase("F"))) {
+                && !(charStr.equalsIgnoreCase("F")) && !(charStr.equalsIgnoreCase("B"))
+                && !(charStr.equalsIgnoreCase("P")) && !(charStr.equalsIgnoreCase("H"))) {
             //re-prompt user for a valid grade
-            System.out.println("Letter entered must be one of: R, C, S, L, F. Enter the letter");
+            System.out.println("Letter entered must be one of: R, C, S, L, F, B, P, H. Enter the " +
+                    "letter");
             charStr = scnr.nextLine();
             charStrScanner = new Scanner(charStr);
 
@@ -219,15 +230,21 @@ public class Environment {
         Scanner scnr = new Scanner(System.in);
         char locationLetter = getValidLocation(scnr, memoryMap);
         if (locationLetter == 'R' || locationLetter == 'r') {
-            character.setLocation("Rand");
+            character.setLocation("Rand Dining Hall");
         } else if (locationLetter == 'C' || locationLetter == 'c') {
-            character.setLocation("Commons");
+            character.setLocation("Commons Dining Hall");
         } else if (locationLetter == 'S' || locationLetter == 's') {
             character.setLocation("Satay");
         } else if (locationLetter == 'L' || locationLetter == 'l') {
             character.setLocation("Langford Auditorium");
         } else if (locationLetter == 'F' || locationLetter == 'f') {
-            character.setLocation("Featheringill");
+            character.setLocation("Featheringill Hall");
+        } else if (locationLetter == 'B' || locationLetter == 'b') {
+            character.setLocation("Stevenson Building");
+        } else if (locationLetter == 'P' || locationLetter == 'p') {
+            character.setLocation("Peabody Library");
+        } else if (locationLetter == 'H' || locationLetter == 'H') {
+            character.setLocation("Light Hall");
         }
     }
 
