@@ -16,7 +16,7 @@ public class Player {
         HP = userHP;
     }
 
-    public void setSI(int userSI) {
+    public void setSI(int userSI) { 
         SI = userSI;
     }
 
