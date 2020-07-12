@@ -3,11 +3,13 @@ import java.util.*;
 public class Player {
     private int HP;
     private int SI;
+    private string location;
 
     //default constructor
     public Player () {
         HP = 100;
         SI = 100;
+        location = "Dorm Room";
     }
 
     public void setHP(int userHP) {
@@ -16,6 +18,10 @@ public class Player {
 
     public void setSI(int userSI) {
         SI = userSI;
+    }
+
+    public void setLocation(string userLocation) {
+        location = userLocation;
     }
 
     //If HP reaches 0, the game is over
@@ -38,7 +44,9 @@ public class Player {
         return this.SI;
     }
 
-
+    public static string getLocation() {
+        return this.location;
+    }
 
 
     /*
