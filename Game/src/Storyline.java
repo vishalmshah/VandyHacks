@@ -40,7 +40,30 @@ public class Storyline {
         }
 
         System.out.println("You walk to Rand for breakfast. But it hasn't opened yet so you grab " +
-                "food at Food For A Thought cafe at Central Library. ");
+                "food at Food For A Thought cafe at Central Library. You have a V-squared Mentor " +
+                "meeting in half an hour and you leisurely make your way to it. You are excited " +
+                "to meet a fellow engineer who is an upperclassman.");
+        System.out.println("While you were able to find Featheringill Hall on time, you get " +
+                "confused inside.");
+        //FIXME add featheringill to memory map @Environment
+
+        choicePrompt();
+        System.out.println("Do you ask a nearby person for directions/try to find the meeting " +
+                "room by yourself?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("You meet a friendly upperclassmen.");
+            System.out.println("\n\" @CAL PUT NPC Conversation here where player finds room " +
+                    "ultimately");
+        }
+        else {
+            System.out.println("You're already late to your meeting and so you decide to take " +
+                    "your time exploring Featheringill. You discover a munchie mart around the " +
+                    "corner and decide to buy three dishes of store-styled stale sushi. Worth it.");
+            //FIXME +10HP @Player
+        }
+
+
 
     }
     public static void dayTwo(Scanner reader, int choice, Player player) {
