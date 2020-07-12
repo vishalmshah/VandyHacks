@@ -16,22 +16,7 @@
 import java.util.*;
 
 public class Environment {
-    /* choose house, light hall location map, location knowledge bank
 
-    set up basic coordinates of important buildings such as commons/light hall/rand/etc.
-
-    zombies -
-        press R to run, F to fight, based off of random
-
-    NPC -
-    dialogue
-    coordinate triggers
-    sends coordinates and locations to player
-
-    munchie marts counts (if count below, send to player and get health warning)
-    location of munchie marts/taste of nashville (if we wanna do satay)
-
-     */
     public static void main(String[] args) {
         String memoryMap[] = new String[10]; //array with maximum number of locations as 10
     }
@@ -43,34 +28,37 @@ public class Environment {
         char choice = getValidChar(scnr);
         if ((choice == 'R') || (choice == 'r')) {
             //lose 10 HealthPoints from the energy it takes to run away
-            //setHP(HP - 10); FIXME: need method
+            character.changeHP(10);
+            System.out.println("You lost 10 HP from running away from the zombie.");
         } else {
             //chose to fight
             boolean winOrLose = fightZombie(character);
-            //FIXME: need to update something so when called to endGame method, the game ends
+            //FIXME: need to call something for consequence of dying
         }
     }
 
     //determines result of zombie fight
     public static boolean fightZombie (Player character) {
         Random rand = new Random();
-        //int HP = getHP(); FIXME: need method
         //bounds for random number generator: can produce the value 1, 2, or 3
         int max = 3;
         int min = 1;
+
         int randomNum = rand.nextInt((max - min) + 1) + min;
-        /*random number generated determines if you survive zombie attack and how much energy it
-        took (HP points) */
+
+        //random number generated determines if you survive zombie attack and HP (health points)
         if (randomNum == 1) {
             //false means become zombie
             return false;
         } else if (randomNum == 2) {
-            //fight takes a lot of energy and you lose 40 HealthPower points
-            //character.setHP(HP - 40); FIXME
+            //fight takes a lot of energy and you lose 40 health points
+            character.changeHP(40);
+            System.out.println("Zombie fight took a lot of energy and you lost 40 HP.");
             return true;
         } else {
             //fight doesn't take as much energy and you only lose 10 HealthPower points
-            //setHP(HP - 10); FIXME
+            character.changeHP(10);
+            System.out.println("You did great in the zombie fight and ony lost 10 HP!");
             return true;
         }
     }
