@@ -73,12 +73,26 @@ public class Storyline {
                     " was gnarly. Boutta head over to Rand with a few of the dudes. Wanna " +
                     "come?\"\n");
             //FIXME rand location is found, memory map accessed @Environment
-            System.out.println("You've arrived at Rand Dining Hall with your new friends.");
+            System.out.println("You've arrived at Rand Dining Hall with your new friends. You " +
+                    "discover Rand Bowls, one of the more appealing food options.");
+        }
+        if(choice == 2) {
+            System.out.println("The food at Commons seems non-edible so you go to the nearby " +
+                    "munchie mart to eat instead. As you exit Commons, you see shadowy figures in" +
+                    " the dark.");
+            choicePrompt();
+            System.out.println("Do you investigate/do not investigate?");
+            int choice2 = getValidChoice(reader);
+
         }
 
     }
 
     //static methods
+
+    public static void dayOne(Scanner reader) {
+
+    }
 
     /**
      * encode-
