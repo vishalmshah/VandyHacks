@@ -24,8 +24,8 @@ public class Environment {
     //method that presents you with options when you encounter a zombie
     public static void zombieEncounter(Player character) {
         Scanner scnr = new Scanner(System.in);
-        //int HP = getHP(); FIXME
         char choice = getValidChar(scnr);
+
         if ((choice == 'R') || (choice == 'r')) {
             //lose 10 HealthPoints from the energy it takes to run away
             character.changeHP(10);
