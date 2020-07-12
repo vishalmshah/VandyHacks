@@ -8,9 +8,10 @@ public class Storyline {
         int choice;
         Player mainguy = new Player();
 
+        //FIXME while HP is above certain level if not then end game??
         dayOne(reader, choice, mainguy);
         dayTwo(reader, choice, mainguy);
-
+        dayThree(reader, choice, mainguy);
 
 
 
@@ -60,7 +61,7 @@ public class Storyline {
             System.out.println("You're already late to your meeting and so you decide to take " +
                     "your time exploring Featheringill. You discover a munchie mart around the " +
                     "corner and decide to buy three dishes of store-styled stale sushi. Worth it.");
-            //FIXME +10HP @Player
+            //FIXME +10HP @Player dont forget to set it and check for it for while loop
         }
 
         System.out.println("After V-squared Mentor meeting, you are tired. You want to lie on the" +
@@ -77,8 +78,27 @@ public class Storyline {
             //FIXME add zombie attack here
         }
         else {
-            System.out.println("You enjoy a peaceful afternoon until");
+            System.out.println("You enjoy a peaceful afternoon.");
         }
+
+        System.out.println("It is time for Founders Walk. You gather in front of your house and " +
+                "put on your house shirt. It is gray and drab. Free stuff, right?");
+        choicePrompt();
+        System.out.println("Do you complain out loud about the shirt/keep to yourself and just " +
+                "wear the damn shirt?");
+        choice = getValidChoice(reader);
+        if(choice == 1) {
+            System.out.println("Someone nearby hears you complaining and joins in. You make a new" +
+                    " friend :). Bonding over the worst.");
+            //FIXME add +10SI @Player
+        }
+        else {
+            System.out.println("You keep to yourself and make no new friends at Founders Walk. " +
+                    "It's okay, pshaw.");
+            //FIXME -10 SI @Player
+        }
+
+        System.out.println("*******End Day Three*******");
 
     }
     public static void dayTwo(Scanner reader, int choice, Player player) {
