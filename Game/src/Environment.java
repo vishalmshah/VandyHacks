@@ -231,8 +231,4 @@ public class Environment {
         }
     }
 
-    public static String [] getArray (String[] memoryMap) {
-        return memoryMap;
-    }
-
 }
