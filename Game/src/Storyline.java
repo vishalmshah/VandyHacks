@@ -12,7 +12,12 @@ public class Storyline {
 
     //static methods
     public static void dayTwo(Scanner reader) {
-
+        //Day 2
+        System.out.println("Friday: Noon \033[3m5% " +
+                "infected\033[0m \n*****************************\n");
+        choicePrompt();
+        System.out.println("Do you wake your roommate up to go explore/go explore by yourself?");
+        int choice = getValidChoice(reader);
     }
 
     public static void dayOne(Scanner reader) {
