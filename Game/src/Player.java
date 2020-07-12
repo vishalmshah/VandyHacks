@@ -58,6 +58,14 @@ public class Player {
         return this.location;
     }
 
+    public int changeHP(int lossOfHP) {
+        HP = HP - lossOfHP;
+    }
+
+    public int changeSI(int lossOfSI) {
+        SI = SI - lossOfSI;
+    }
+
 
     /*
     2D player simple methods
